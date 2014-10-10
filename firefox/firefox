@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# firefox container should be launched before using this script
+eval `cat ~/.ssh/environment-trantor`
+ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" \
+    root@`docker inspect firefox | grep IPAddress | sed 's/.*"\(.*\)",/\1/'` \
+    echo "172.17.42.1 localhost" \> /etc/hosts
+ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" \
+    hybris@`docker inspect firefox | grep IPAddress | sed 's/.*"\(.*\)",/\1/'` \
+    iceweasel $@

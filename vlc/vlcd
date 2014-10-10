@@ -1,0 +1,6 @@
+#! /bin/bash
+
+docker run -d --name=vlcd \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /home/hybris/Downloads:/home/hybris/Downloads \
+    -expose 8080 -p 8080:8080 hybris:vlc > /tmp/vlcd.log 2>&1

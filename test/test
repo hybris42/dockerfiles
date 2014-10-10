@@ -1,0 +1,4 @@
+#! /bin/bash
+
+docker run --rm -t -i -v /home/hybris/Downloads:/media hybris:test
+

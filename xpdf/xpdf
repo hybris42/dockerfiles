@@ -1,0 +1,4 @@
+#! /bin/bash
+
+docker run --rm -v /tmp:/tmp -v /home/hybris/Downloads:/home/hybris/Downloads \
+    hybris:xpdf xpdf $PWD/${@/ / $PWD\/} > /tmp/xpdf.log 2>&1

@@ -1,0 +1,7 @@
+#! /bin/bash
+
+docker run -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /home/hybris/.mozilla:/home/hybris/.mozilla \
+    -v /home/hybris/Downloads:/home/hybris/Downloads \
+    hybris:firefox
+
