@@ -1,10 +1,16 @@
-.PHONY: devdocs firefox libreoffice teamviewer test vlc xpdf all
+.PHONY: chrome devdocs firefox irssi libreoffice teamviewer test vlc xpdf all
+
+chrome:
+	docker build --no-cache=true -t hybris:chrome chrome
 
 devdocs:
 	docker build --no-cache=true -t hybris:devdocs devdocs
 
 firefox:
 	docker build --no-cache=true -t hybris:firefox firefox
+
+irssi:
+	docker build --no-cache=true -t hybris:irssi irssi
 
 libreoffice:
 	docker build --no-cache=true -t hybris:libreoffice libreoffice
@@ -21,4 +27,4 @@ vlc:
 xpdf:
 	docker build --no-cache=true -t hybris:xpdf xpdf
 
-all: devdocs firefox libreoffice test vlc xpdf
+all: chrome devdocs firefox irssi libreoffice test vlc xpdf

@@ -3,6 +3,14 @@ dockerfiles
 A bunch of dockerfiles, use Makefile to create images
 
 
+chrome
+-------
+<pre>
+$ make chrome
+$ chrome/chrome
+</pre>
+
+
 devdocs
 -------
 <pre>
@@ -17,6 +25,14 @@ firefox
 $ make firefox
 $ firefox/firefoxd
 $ firefox/firefox
+</pre>
+
+
+irssi
+-------
+<pre>
+$ make irssi # add your .irssi/config in irssi/
+$ irssi/irssi
 </pre>
 
 
