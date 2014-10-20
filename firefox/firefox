@@ -1,10 +1,23 @@
 #! /bin/bash
 
+docker run -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /home/hybris/.mozilla:/home/hybris/.mozilla \
+    -v /home/hybris/Downloads:/home/hybris/Downloads \
+    hybris:firefox
+
+
 # firefox container should be launched before using this script
-eval `cat ~/.ssh/environment-trantor`
-ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" \
-    root@`docker inspect firefox | grep IPAddress | sed 's/.*"\(.*\)",/\1/'` \
-    echo "172.17.42.1 localhost" \> /etc/hosts
-ssh -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" \
-    hybris@`docker inspect firefox | grep IPAddress | sed 's/.*"\(.*\)",/\1/'` \
-    iceweasel $@
+if ! docker inspect firefox > /dev/null 2>&1; then
+  docker run --rm -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /home/hybris/.mozilla:/home/hybris/.mozilla \
+    -v /home/hybris/Downloads:/home/hybris/Downloads hybris:firefox
+fi
+if ! docker top firefox > /dev/null 2>&1; then
+  docker start firefox
+fi
+
+if [ $# -ne 0 ]; then
+  for i in $@; do
+    docker exec firefox iceweasel "$i"
+  done
+fi
