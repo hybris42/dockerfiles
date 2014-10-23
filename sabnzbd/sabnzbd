@@ -1,5 +1,4 @@
 #! /bin/bash
 
-docker run --rm -v /home/hybris/.sabnzbd:/root/.sabnzbd \
-    -v /home/hybris/Downloads:/media -p 8080:8080 \
-    hybris:sabnzbd
+docker run -d -v /home/docker/data/sabnzbd.ini:/root/.sabnzbd/sabnzbd.ini \
+    -v /mnt/loot:/media -p 8080:8080 hybris:sabnzbd

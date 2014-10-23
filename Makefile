@@ -15,6 +15,9 @@ irssi:
 libreoffice:
 	docker build --no-cache=true -t hybris:libreoffice libreoffice
 
+sabnzbd:
+	docker build --no-cache=true -t korell:sabnzbd sabnzbd
+
 teamviewer:
 	docker build --no-cache=true -t hybris:teamviewer teamviewer
 

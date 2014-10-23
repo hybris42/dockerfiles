@@ -44,6 +44,14 @@ $ libreoffice/libreoffice
 </pre>
 
 
+sabnzbd
+-------
+<pre>
+$ make sabnzbd
+$ sabnzbd/sabnzbd
+</pre>
+
+
 teamviewer
 ----------
 <pre>
