@@ -2,4 +2,5 @@
 
 docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/hybris/Downloads:/home/hybris/Downloads \
-    hybris:vlc cvlc $PWD/${@/ / $PWD\/} > /tmp/vlc.log 2>&1
+    -p 8080:8080 hybris:vlc \
+    cvlc -I http --http-password foobar $PWD/${@/ / $PWD\/} vlc://quit > /tmp/vlc.log 2>&1

@@ -9,6 +9,7 @@ RUN apt-get -q update && \
 RUN adduser --disabled-password --gecos hybris hybris
 
 # Prepare env
+EXPOSE 8080
 USER hybris
 ENV DISPLAY :0.0
 ENV PULSE_SERVER tcp:172.17.42.1
