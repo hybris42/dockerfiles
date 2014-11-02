@@ -3,14 +3,14 @@
 docker run -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/hybris/.mozilla:/home/hybris/.mozilla \
     -v /home/hybris/Downloads:/home/hybris/Downloads \
-    hybris:firefox
+    trantor:firefox
 
 
 # firefox container should be launched before using this script
 if ! docker inspect firefox > /dev/null 2>&1; then
   docker run --rm -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/hybris/.mozilla:/home/hybris/.mozilla \
-    -v /home/hybris/Downloads:/home/hybris/Downloads hybris:firefox
+    -v /home/hybris/Downloads:/home/hybris/Downloads trantor:firefox
 fi
 if ! docker top firefox > /dev/null 2>&1; then
   docker start firefox

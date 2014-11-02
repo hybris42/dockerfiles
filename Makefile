@@ -1,33 +1,51 @@
-.PHONY: chrome devdocs firefox irssi libreoffice teamviewer test vlc xpdf all
+chrome: FORCE
+	docker build --no-cache=true -t trantor:chrome chrome
 
-chrome:
-	docker build --no-cache=true -t hybris:chrome chrome
+couchpotato: FORCE
+        docker build --no-cache=true -t korell:couchpotato couchpotato
 
-devdocs:
-	docker build --no-cache=true -t hybris:devdocs devdocs
+devdocs: FORCE
+	docker build --no-cache=true -t korell:devdocs devdocs
 
-firefox:
-	docker build --no-cache=true -t hybris:firefox firefox
+firefox: FORCE
+	docker build --no-cache=true -t trantor:firefox firefox
 
-irssi:
-	docker build --no-cache=true -t hybris:irssi irssi
+headphones: FORCE
+        docker build --no-cache=true -t korell:headphones headphones
 
-libreoffice:
-	docker build --no-cache=true -t hybris:libreoffice libreoffice
+irssi: FORCE
+	docker build --no-cache=true -t trantor:irssi irssi
 
-sabnzbd:
+libreoffice: FORCE
+	docker build --no-cache=true -t trantor:libreoffice libreoffice
+
+mysql: FORCE
+	docker build --no-cache=true -t korell:mysql mysql
+
+sabnzbd: FORCE
 	docker build --no-cache=true -t korell:sabnzbd sabnzbd
 
-teamviewer:
-	docker build --no-cache=true -t hybris:teamviewer teamviewer
+sickbeard: FORCE
+	docker build --no-cache=true -t korell:sickbeard sickbeard
 
-test:
-	docker build --no-cache=true -t hybris:test test
+teamviewer: FORCE
+	docker build --no-cache=true -t trantor:teamviewer teamviewer
 
-vlc:
-	docker build --no-cache=true -t hybris:vlc vlc
+test: FORCE
+	docker build --no-cache=true -t trantor:test test
 
-xpdf:
-	docker build --no-cache=true -t hybris:xpdf xpdf
+vlc: FORCE
+	docker build --no-cache=true -t trantor:vlc vlc
 
-all: chrome devdocs firefox irssi libreoffice test vlc xpdf
+xpdf: FORCE
+	docker build --no-cache=true -t trantor:xpdf xpdf
+
+FORCE:
+
+
+korell: devdocs mysql sabnzbd
+
+trantor: chrome firefox irssi libreoffice teamviewer test vlc xpdf
+
+
+all: korell trantor

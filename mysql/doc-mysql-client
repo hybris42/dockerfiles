@@ -1,0 +1,7 @@
+#! /bin/bash
+
+if [ $# -lt 1 ]; then
+  echo "usage: doc-mysql-client container_name [command]"
+  exit 1
+fi
+docker exec -t -i $1 mysql --user=root --password=mypass ${@:2}

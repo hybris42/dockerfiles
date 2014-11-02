@@ -1,4 +1,4 @@
 #! /bin/bash
 
 docker run -d -v /home/docker/data/sabnzbd.ini:/root/.sabnzbd/sabnzbd.ini \
-    -v /mnt/loot:/media -p 8080:8080 hybris:sabnzbd
+    -v /mnt/loot:/media -p 8080:8080 korell:sabnzbd

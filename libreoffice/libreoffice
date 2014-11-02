@@ -2,4 +2,4 @@
 
 docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/hybris/Downloads:/home/hybris/Downloads \
-    hybris:libreoffice > /tmp/libreoffice.log 2>&1
+    trantor:libreoffice > /tmp/libreoffice.log 2>&1

@@ -2,5 +2,5 @@
 
 docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/hybris/Downloads:/home/hybris/Downloads \
-    hybris:chrome
+    trantor:chrome
 
