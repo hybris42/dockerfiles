@@ -6,7 +6,9 @@ RUN apt-get -q update && \
     echo 'mysql-server-5.5 mysql-server/root_password password mypass' | debconf-set-selections && \
     echo 'mysql-server-5.5 mysql-server/root_password_again password mypass' | debconf-set-selections && \
     apt-get -q install -y mysql-server mysql-client && \
-    sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+    sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf && \
+    /etc/init.d/mysql start && \
+    mysql --password=mypass -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'mypass';"
 
 # Prepare env
 EXPOSE 3306

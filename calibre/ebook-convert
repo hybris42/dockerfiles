@@ -1,0 +1,6 @@
+#! /bin/bash
+
+docker run -i --name ebook-converter -v $PWD/$1:/mnt/$1 \
+    trantor:calibre ebook-convert /mnt/$1 /tmp/$2
+docker cp ebook-converter:/tmp/$2 .
+docker rm ebook-converter

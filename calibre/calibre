@@ -1,0 +1,7 @@
+#! /bin/bash
+
+docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /home/hybris/Calibre:/home/hybris/Calibre \
+    -v /mnt/santanni/Docs/Livres:/media \
+    -v /home/hybris/.config/calibre:/home/hybris/.config/calibre \
+    trantor:calibre

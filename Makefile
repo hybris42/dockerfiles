@@ -1,3 +1,6 @@
+calibre: FORCE
+	docker build --no-cache=true -t trantor:calibre calibre
+
 chrome: FORCE
 	docker build --no-cache=true -t trantor:chrome chrome
 
@@ -19,8 +22,17 @@ irssi: FORCE
 libreoffice: FORCE
 	docker build --no-cache=true -t trantor:libreoffice libreoffice
 
+minidlna: FORCE
+	docker build --no-cache=true -t trantor:minidlna minidlna
+
+mtpaint: FORCE
+	docker build --no-cache=true -t trantor:mtpaint mtpaint
+
 mysql: FORCE
 	docker build --no-cache=true -t korell:mysql mysql
+
+rtorrent: FORCE
+	docker build --no-cache=true -t trantor:rtorrent rtorrent
 
 sabnzbd: FORCE
 	docker build --no-cache=true -t korell:sabnzbd sabnzbd
@@ -45,7 +57,7 @@ FORCE:
 
 korell: devdocs mysql sabnzbd
 
-trantor: chrome firefox irssi libreoffice teamviewer test vlc xpdf
+trantor: calibre chrome firefox irssi libreoffice minidlna mtpaint rtorrent teamviewer test vlc xpdf
 
 
 all: korell trantor

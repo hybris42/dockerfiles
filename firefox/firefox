@@ -1,6 +1,7 @@
 #! /bin/bash
 
-docker run -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
+docker run -d --name firefox --net="host" \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/hybris/.mozilla:/home/hybris/.mozilla \
     -v /home/hybris/Downloads:/home/hybris/Downloads \
     trantor:firefox
@@ -8,7 +9,8 @@ docker run -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
 
 # firefox container should be launched before using this script
 if ! docker inspect firefox > /dev/null 2>&1; then
-  docker run --rm -d --name firefox -v /tmp/.X11-unix:/tmp/.X11-unix \
+  docker run --rm -d --name firefox --net="host" \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/hybris/.mozilla:/home/hybris/.mozilla \
     -v /home/hybris/Downloads:/home/hybris/Downloads trantor:firefox
 fi

@@ -3,6 +3,15 @@ dockerfiles
 A bunch of dockerfiles, use Makefile to create images
 
 
+calibre
+-------
+<pre>
+$ make calibre
+$ calibre/calibre
+$ calibre/ebook-convert file.epub file.mobi
+</pre>
+
+
 chrome
 -------
 <pre>
@@ -60,12 +69,36 @@ $ libreoffice/libreoffice
 </pre>
 
 
+minidlna
+-----
+<pre>
+$ make minidlna
+$ minidlna/minidlna
+</pre>
+
+
+mtpaint
+-----
+<pre>
+$ make mtpaint
+$ mtpaint/mtpaint
+</pre>
+
+
 mysql
 -----
 <pre>
 $ make mysql
 $ mysql/doc-mysql-server --name site01db -p 3306:3306 -v /mnt/site01db:/var/lib/mysql
 $ mysql/doc-mysql-client site01db
+</pre>
+
+
+rtorrent
+--------
+<pre>
+$ make rtorrent
+$ rtorrent/rtorrent
 </pre>
 
 
