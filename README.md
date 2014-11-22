@@ -69,6 +69,14 @@ $ libreoffice/libreoffice
 </pre>
 
 
+limbomedia
+-----------
+<pre>
+$ make limbomedia
+$ limbomedia/limbomedia
+</pre>
+
+
 minidlna
 -----
 <pre>

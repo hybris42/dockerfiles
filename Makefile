@@ -22,6 +22,9 @@ irssi: FORCE
 libreoffice: FORCE
 	docker build --no-cache=true -t trantor:libreoffice libreoffice
 
+limbomedia: FORCE
+	docker build --no-cache=true -t korell:limbomedia limbomedia
+
 minidlna: FORCE
 	docker build --no-cache=true -t trantor:minidlna minidlna
 
@@ -55,7 +58,7 @@ xpdf: FORCE
 FORCE:
 
 
-korell: devdocs mysql sabnzbd
+korell: devdocs limbomedia mysql sabnzbd
 
 trantor: calibre chrome firefox irssi libreoffice minidlna mtpaint rtorrent teamviewer test vlc xpdf
 
