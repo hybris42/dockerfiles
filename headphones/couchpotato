@@ -1,3 +1,5 @@
 #! /bin/bash
 
-docker run --rm -p 5050:5050 hybris:couchpotato
+docker run -d --name headphones -p 8181:8181 \
+    -v /home/docker/data/headphones/headphones.db:/root/headphones/headphones.db \
+    korell:headphones

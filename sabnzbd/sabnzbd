@@ -1,4 +1,5 @@
 #! /bin/bash
 
-docker run -d -v /home/docker/data/sabnzbd.ini:/root/.sabnzbd/sabnzbd.ini \
+docker run -d --name sabnzbd -p 8080:8080 \
+    -v /home/docker/data/sabnzbd.ini:/root/.sabnzbd/sabnzbd.ini \
     -v /mnt/loot:/media -p 8080:8080 korell:sabnzbd
